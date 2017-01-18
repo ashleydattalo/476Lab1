@@ -6,8 +6,7 @@ class WorldObj {
    Shape 
 
    public:
-      int load_object();
-      void draw();
+      void draw(); /* -> call the mesh's draw function */
       void set_position (int, int, int);
 };
 
@@ -20,3 +19,13 @@ void WorldObj::set_position(int new_x, int new_y, int new_z) {
    y = new_y;
    z = new_z;
 }
+/* Things that already exist in shape: 
+ *  - loadMesh 
+ *  - init 
+ *  - draw 
+ *  - ComputeTex() 
+ *  - resize 
+ * 
+ * Things that still need to be stored/done: 
+ *  - position in the world 
+ *  - 
