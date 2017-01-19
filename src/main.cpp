@@ -10,6 +10,7 @@
 #include "MatrixStack.h"
 #include "Shape.h"
 #include "Texture.h"
+#include "WorldObj.h"
 
 // value_ptr for glm
 #include <glm/gtc/type_ptr.hpp>
@@ -38,6 +39,11 @@ int g_GiboLen;
 int g_width, g_height;
 float cTheta = 0;
 float cHeight = 0;
+
+/* TESTING ---------- WORLD OBJ */
+WorldObj *w = new WorldObj(vec3(0,0,0), vec3(1,1,1), vec3(2,2,2), 1.0, "dog.obj", "../resources");
+
+/* END TESTING */
 
 //global data for ground plane
 GLuint GrndBuffObj, GrndNorBuffObj, GrndTexBuffObj, GIndxBuffObj;

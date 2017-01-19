@@ -1,31 +1,29 @@
 #include "WorldObj.h"
 #include "Shape.h"
 
-class WorldObj {
-   int x, y, z;
-   Shape 
+//Constructor 
+WorldObj::WorldObj(glm::vec3 pos, glm::vec3 dir, glm::vec3 vel, 
+      float bound_radius, std::string shape_file, string resource)
+{ 
+   position = pos;
+   direction = dir;
+   velocity = vel;
+   bound_sphere_radius = bound_radius;
 
-   public:
-      void draw(); /* -> call the mesh's draw function */
-      void set_position (int, int, int);
-};
-
-void WorldObj::load_object() {
-
+   shape = make_shared<Shape>();
+   shape->loadMesh(resource + shape_file); // TODO(leia): replace with RESOURCE_DIR when global World class created
+   shape->resize();
+   shape->init();
 }
 
-void WorldObj::set_position(int new_x, int new_y, int new_z) {
-   x = new_x;
-   y = new_y;
-   z = new_z;
+//Destructor
+WorldObj::~WorldObj()
+{
 }
-/* Things that already exist in shape: 
- *  - loadMesh 
- *  - init 
- *  - draw 
- *  - ComputeTex() 
- *  - resize 
- * 
- * Things that still need to be stored/done: 
- *  - position in the world 
- *  - 
+/*
+WordObj::draw(const shared_ptr<Program> prog) const
+{
+   shape.draw(prog);
+}
+
+*/
